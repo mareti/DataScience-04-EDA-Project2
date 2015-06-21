@@ -9,8 +9,8 @@ plot4 <- function() {
     startTime = now()
     
     # Load data
-    #NEI = readRDS("./data/summarySCC_PM25.rds")
-    #SCC = readRDS("./data/Source_Classification_Code.rds")
+    NEI = readRDS("./data/summarySCC_PM25.rds")
+    SCC = readRDS("./data/Source_Classification_Code.rds")
     
     # first search SCC for the desired combustion related sources
     SCC_coal = SCC %>%
@@ -18,7 +18,7 @@ plot4 <- function() {
         filter(grepl("coal", Short.Name, ignore.case=TRUE))
     
     # then use that code to filter/join the NEI data source
-    #NEI_coal = inner_join(NEI, SCC_coal, by = ("SCC"="SCC"))
+    NEI_coal = inner_join(NEI, SCC_coal, by = ("SCC"="SCC"))
     
     NEI_coal %>%
         group_by(year) %>%
