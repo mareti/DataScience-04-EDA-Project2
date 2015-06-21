@@ -23,14 +23,15 @@ plot4 <- function() {
     NEI_coal %>%
         group_by(year) %>%
         summarize(sumEmissions=sum(Emissions)) %>%
-        ggplot(aes(x=year, y=sumEmissions)) %>%
-        + geom_line(arrow=arrow(type="closed", length=unit(0.1, "inches"))) %>%
-        + labs(x="Year") %>%
-        + labs(y="Sum of Emissions") %>%
-        + labs(title="Coal Emission Trend")
-        ggsave(file="plot4.png", width=5, height=5, units="in")
+        ggplot(aes(x=year, y=sumEmissions)) +
+        geom_line(arrow=arrow(type="closed", length=unit(0.1, "inches"))) +
+        labs(x="Year") +
+        labs(y="Sum of Emissions") +
+        labs(title="Coal Emission Trend")
+    
+    ggsave(file="plot4.png", width=5, height=5, units="in")
     
     # Runtime
     endTime = now()
-    print(paste("Runtime:", endTime-startTime, "seconds"))
+    print(paste("Runtime:", round(endTime-startTime, 2), "minutes"))
 }

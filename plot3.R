@@ -15,14 +15,16 @@ plot3 <- function() {
         filter(fips=="24510") %>%
         group_by(year, type) %>%
         summarize(sumEmissions=sum(Emissions)) %>%
-        ggplot(aes(x=year, y=sumEmissions, group=type, color=type)) %>%
-        + geom_line() %>%
-        + labs(x="Year") %>%
-        + labs(y="Emissions") %>%
-        + labs(title="Baltimore City Emission Trend") %>%
-        ggsave(file="plot3.png", width=5, height=5, units="in")
+        ggplot(aes(x=year, y=sumEmissions, group=type, color=type)) +
+        geom_line() +
+        geom_point() +
+        labs(x="Year") +
+        labs(y="Emissions") +
+        labs(title="Baltimore City Emission Trend") 
+        
+    ggsave(file="plot3.png", width=5, height=5, units="in")
     
     # Runtime
     endTime = now()
-    print(paste("Runtime:", endTime-startTime, "seconds"))
+    print(paste("Runtime:", round(endTime-startTime, 2), "seconds"))
 }

@@ -1,6 +1,5 @@
 plot2 <- function() {
     # load required libraries
-    library(ggplot2)
     library(dplyr)
     library(lubridate)
     
@@ -28,5 +27,5 @@ plot2 <- function() {
     
     # Runtime
     endTime = now()
-    print(paste("Runtime:", endTime-startTime, "seconds"))
+    print(paste("Runtime:", round(endTime-startTime, 2), "seconds"))
 }
