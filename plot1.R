@@ -1,9 +1,9 @@
-# load required libraries
-library(ggplot2)
-library(dplyr)
-library(lubridate)
-
 plot1 <- function() {
+    # load required libraries
+    library(ggplot2)
+    library(dplyr)
+    library(lubridate)
+    
     # initialize
     startTime = now()
     
